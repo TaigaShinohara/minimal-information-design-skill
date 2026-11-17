@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimal Information Design"
+  short_description: "アプリの情報量を減らし認知負荷を下げ、読まなくても直感的に使えるUIにする"
+  default_prompt: "$minimal_information_design を使って、この画面の情報量を減らして直感的にして。"
