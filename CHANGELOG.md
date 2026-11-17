@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Agent Skills の標準形式に対応。フォルダ名と呼び出し名を `minimal-information-design` に統一し、Codex、Cursor、Devin Local、Claude Code、VS Code の GitHub Copilot への導入手順を追加。
+- 関連スキルや Muse 固有のコネクターがない環境でも、画面の情報量を見直せるようにした。
+
 ## v1.0.0 (2026-11-17)
 
 - 初回公開
