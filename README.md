@@ -18,15 +18,40 @@
 
 | ファイル | 内容 |
 | --- | --- |
-| `skills/minimal_information_design/SKILL.md` | スキル本体（8原則、重要度ランク、数え方、作業の流れ、検証の正本） |
-| `skills/minimal_information_design/references/checklist.md` | 棚卸し記録、数値の目安、仕分けと検証の記録欄 |
-| `skills/minimal_information_design/references/patterns.md` | 置換・分割・並び順・段階表示・切り捨ての場面別パターン |
-| `skills/minimal_information_design/skill.yaml` | Muse 用スキル定義 |
-| `skills/minimal_information_design/agents/openai.yaml` | Codex 用インターフェース定義 |
+| `skills/minimal-information-design/SKILL.md` | スキル本体（8原則、重要度ランク、数え方、作業の流れ、検証の正本） |
+| `skills/minimal-information-design/references/checklist.md` | 棚卸し記録、数値の目安、仕分けと検証の記録欄 |
+| `skills/minimal-information-design/references/patterns.md` | 置換・分割・並び順・段階表示・切り捨ての場面別パターン |
+| `skills/minimal-information-design/skill.yaml` | Muse 用スキル定義 |
+| `skills/minimal-information-design/agents/openai.yaml` | Codex 用インターフェース定義 |
+
+## インストール
+
+このリポジトリを取得して、`skills/minimal-information-design/` をフォルダごとコピーします。補助資料も一緒に読み込めるよう、`SKILL.md` と `references/` を同じフォルダに置きます。
+
+| エディター | 個人用スキルの保存先 |
+| --- | --- |
+| [Codex](https://learn.chatgpt.com/docs/build-skills)・[Cursor](https://cursor.com/docs/skills)（ローカル） | `~/.agents/skills/` |
+| [Devin Local（Devin Desktop）](https://docs.devin.ai/desktop/devin-local/customizations) | `~/.agents/skills/` |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `~/.claude/skills/` |
+| [VS Code の GitHub Copilot](https://code.visualstudio.com/docs/agent-customization/agent-skills) | `~/.copilot/skills/` |
+
+macOS / Linux で Codex と Cursor の両方に導入する例です。
+
+```sh
+git clone --depth 1 https://github.com/TaigaShinohara/minimal-information-design-skill.git
+mkdir -p "$HOME/.agents/skills"
+cp -R minimal-information-design-skill/skills/minimal-information-design "$HOME/.agents/skills/"
+```
+
+ほかの Agent Skills 対応エディターでは、そのエディターのスキル保存先へ同じフォルダを配置します。初回の導入後は新しいチャットを開き、スキルが表示されない場合はエディターを再起動します。
+
+以前のパス `minimal_information_design` から手動で導入していた場合は、古いフォルダをスキルの検索対象外へ移します。登録済みの呼び出し名は `minimal-information-design` に更新します。
 
 ## 使い方
 
-スキル対応の AI エージェント（Claude / Codex 等）に `skills/minimal_information_design/` を読み込ませ、「情報量を減らして」「直感的にして」などと依頼するだけです。何を一番見せたいか（画面の狙い）は別スキル meaningful_app_design の領分で、本スキルはその決定を前提に「量・置換・配置」を担います。
+「この設定画面の情報量を減らして、次にすることがすぐ分かるようにして」と依頼します。明示的に呼び出す場合は Codex で `$minimal-information-design`、Cursor と Claude Code で `/minimal-information-design` を使います。エディター側にスキル機能がない場合も、`SKILL.md` と `references/` をチャットで参照できます。
+
+このスキルは単体で使えます。画面の狙いを決めるときは、利用できる環境で meaningful_app_design も併用できます。
 
 ## 経緯
 
